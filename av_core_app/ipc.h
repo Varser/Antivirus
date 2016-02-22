@@ -9,13 +9,14 @@ class ipc : public QObject
     Q_OBJECT
 public:
     explicit ipc(QObject *parent = 0);
+    bool init();
 
 signals:
 
 public slots:
     void on_connect();
 private:
-    QTcpServer* _server;
+    QTcpServer _server;
 };
 
 #endif // IPC_H

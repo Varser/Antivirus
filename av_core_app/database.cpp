@@ -30,6 +30,7 @@ database::database() :
             {
                 result.append(", ");
             }
+
             if (!result.contains(iterator.value()))
                 result.append(iterator.value());
         }
@@ -41,6 +42,7 @@ database::database() :
 {
     if (!_database._loaded)
         qDebug() << "\tError: DataBase is NOT loaded";
+
     return _database._loaded;
 }
 
@@ -48,6 +50,7 @@ database::database() :
 {
     if (!_database._loaded)
         return 0;
+
     return _database._sequence_max_size;
 }
 
@@ -56,12 +59,14 @@ void database::load(const QString& path)
     _loaded = false;
     _sequence_max_size = 0;
     qDebug() << "\tLoading DataBase from file " << path;
+
     QFile file(path);
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
     {
         qDebug() << "\tError opening file " << path;
         return;
     }
+
     while (!file.atEnd())
     {
         QByteArray line = file.readLine();
@@ -75,6 +80,7 @@ void database::load(const QString& path)
         _sequence_max_size = (_sequence_max_size < delimeter) ? delimeter : _sequence_max_size;
         qDebug() << "\tLoaded sequence " << sequence << " with guid " << line.right(line.size() - delimeter - 1);
     }
+
     if (!_data.empty())
     {
         _loaded = true;

@@ -16,6 +16,7 @@ signals:
     void directory_not_choosen();
     void set_progress(int);
     void set_threats(QString);
+
 public slots:
     void on_scan();
     void on_stop();
@@ -25,6 +26,7 @@ public slots:
     void on_pause(bool);
     void on_progress(int);
     void on_threats(QString);
+
 private:
     QString _directory;
     QPair<bool, scanner*> _scanner;

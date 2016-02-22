@@ -9,9 +9,10 @@ class connection : public QObject
     Q_OBJECT
 public:
     explicit connection(QTcpSocket* socket, QObject *parent = 0);
-    void run();
+    void process();
 private:
     QByteArray process_request(const QByteArray& data);
+    QPair<QByteArray, QByteArray> tokenize_data(const QByteArray& data);
 private:
     QTcpSocket* _socket;
 

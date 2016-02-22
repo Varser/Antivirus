@@ -14,11 +14,13 @@ class Widget : public QWidget
 public:
     Widget(QWidget *parent = 0);
     void paintEvent(QPaintEvent *);
+
 private:
     void prepare_background();
     void prepare_buttons();
     void prepare_progress_bar();
     void prepare_text_edit();
+
 private:
     QAbstractButton* _scan_stop;
     QAbstractButton* _pause_continue;

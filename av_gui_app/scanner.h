@@ -19,6 +19,7 @@ public:
     QString get_threats();
     void pause(bool);
     void stop_thread();
+
 private:
     QList<file_scan*> _files;
     QString _dir;
@@ -26,9 +27,11 @@ private:
     volatile int _progress;
     QString _threats;
     volatile bool _paused;
+
 signals:
     void threats_list(QString);
     void progress(int);
+
 private:
     void run();
 };

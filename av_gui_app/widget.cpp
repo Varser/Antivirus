@@ -2,8 +2,8 @@
 
 #include "Buttons/scan_stop_button.h"
 #include "Buttons/pause_continue_button.h"
-#include "progress_bar.h"
-#include "scan_results_text_edit.h"
+#include "Buttons/progress_bar.h"
+#include "Buttons/scan_results_text_edit.h"
 #include "scanner_manager.h"
 
 #include <QStyleOption>
@@ -36,7 +36,6 @@ Widget::Widget(QWidget *parent) :
     connect(_scanner, SIGNAL(set_progress(int)), _progress, SLOT(set_progress(int)));
     connect(_scanner, SIGNAL(set_threats(QString)), _scan_results, SLOT(setText(QString)));
     connect(_pause_continue, SIGNAL(pause(bool)), _scanner, SLOT(on_pause(bool)));
-    //connect(_scan_stop, SIGNAL(scan(bool)), _progress, SLOT(show_hide(bool)));
 }
 
 void Widget::paintEvent(QPaintEvent *)
